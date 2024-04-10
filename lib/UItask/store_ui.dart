@@ -35,28 +35,43 @@ class _StoreUIState extends State<StoreUI> {
         child: ListView(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 20, right: 10, top: 20),
+              padding: const EdgeInsets.only(left: 20, right: 30, top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Hi Tushkar'),
-                      Text('Split with friendds'),
+                      Text(
+                        'Hi Tushkar',
+                        style: TextStyle(
+                            fontFamily: 'Arial',
+                            color: Colors.white,
+                            fontSize: 25),
+                      ),
+                      Text(
+                        'Split with friends',
+                        style: TextStyle(
+                            fontFamily: 'Arial',
+                            color: Colors.white,
+                            fontSize: 25),
+                      ),
                     ],
                   ),
-                  Container(
-                    child: const Material(
-                      child: Icon(Icons.person),
+                  Material(
+                    borderRadius: BorderRadius.circular(20),
+                    child: const Icon(
+                      Icons.person,
+                      size: 50,
                     ),
                   )
                 ],
               ),
             ),
-            const SizedBox(),
+            const SizedBox(
+              height: 10,
+            ),
             Container(
-              width: 100,
               child: Material(
                 color: Colors.white,
                 child: Row(
@@ -77,7 +92,7 @@ class _StoreUIState extends State<StoreUI> {
                                 child: Material(
                                   color: Colors.blue,
                                   borderRadius: BorderRadius.circular(50),
-                                  child: Icon(Icons.person,
+                                  child: const Icon(Icons.person,
                                       size: 36.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
@@ -87,7 +102,7 @@ class _StoreUIState extends State<StoreUI> {
                                 child: Material(
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(50),
-                                  child: Icon(Icons.person,
+                                  child: const Icon(Icons.person,
                                       size: 36.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
@@ -97,7 +112,7 @@ class _StoreUIState extends State<StoreUI> {
                                 child: Material(
                                   color: Colors.yellow,
                                   borderRadius: BorderRadius.circular(50),
-                                  child: Icon(Icons.person,
+                                  child: const Icon(Icons.person,
                                       size: 36.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
@@ -107,7 +122,7 @@ class _StoreUIState extends State<StoreUI> {
                                 child: Material(
                                   color: Colors.green,
                                   borderRadius: BorderRadius.circular(50),
-                                  child: Icon(Icons.add,
+                                  child: const Icon(Icons.add,
                                       size: 36.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
@@ -116,10 +131,10 @@ class _StoreUIState extends State<StoreUI> {
                           ),
                         ),
                         ElevatedButton(
-                            onPressed: () {}, child: Text('Split Now'))
+                            onPressed: () {}, child: const Text('Split Now'))
                       ],
                     ),
-                    Column(
+                    const Column(
                       children: [
                         Text('Total bill'),
                         Text('\$877'),
@@ -130,12 +145,16 @@ class _StoreUIState extends State<StoreUI> {
               ),
             ),
             Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+              ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Nearby Friends'),
+                      const Text('Nearby Friends'),
                       DropdownButton(
                         value: dropdownvalue,
                         icon: const Icon(Icons.keyboard_arrow_down),
@@ -155,8 +174,131 @@ class _StoreUIState extends State<StoreUI> {
                       ),
                     ],
                   ),
-                  Row(),
-                  Column(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        child: const Material(
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Icon(Icons.person),
+                                Text('name'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: const Material(
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Icon(Icons.person),
+                                Text('name'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: const Material(
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Icon(Icons.person),
+                                Text('name'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: const Material(
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Icon(Icons.person),
+                                Text('name'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Text('Recent Split'),
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              child: const Material(
+                                child: Icon(Icons.person),
+                              ),
+                            ),
+                            const Column(
+                              children: [Text('data'), Text('data')],
+                            ),
+                            Container(
+                              height: 50,
+                              width: 100,
+                              child: Stack(
+                                fit: StackFit.expand,
+                                //alignment:new Alignment(x, y)
+                                children: <Widget>[
+                                  Positioned(
+                                    left: 20.0,
+                                    child: Material(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: const Icon(Icons.person,
+                                          size: 36.0,
+                                          color: Color.fromRGBO(
+                                              218, 165, 32, 1.0)),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 35.0,
+                                    child: Material(
+                                      color: Colors.red,
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: const Icon(Icons.person,
+                                          size: 36.0,
+                                          color: Color.fromRGBO(
+                                              218, 165, 32, 1.0)),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 50.0,
+                                    child: Material(
+                                      color: Colors.yellow,
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: const Icon(Icons.person,
+                                          size: 36.0,
+                                          color: Color.fromRGBO(
+                                              218, 165, 32, 1.0)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ))
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
