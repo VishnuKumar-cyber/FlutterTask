@@ -28,43 +28,36 @@ class _StoreResultState extends State<StoreResult> {
   int temp2 = 0;
   void count(int wings, int legs, int flesh) {
     setState(() => isLoading = true);
-    if (wings <= 0 || legs <= 0 || flesh <= 0) {
-      leftoverLegs = 0;
-      leftoverWings = 0;
-      leftoverChickens = 0;
-      requiredChickens = 0;
+    if (wings % 2 == 0 || legs % 2 == 0) {
+      temp1 = wings ~/ chickenWingsPerChicken;
+      temp2 = legs ~/ chickenLegsPerChicken;
+      print('st1' + temp1.toString());
+      print(temp2);
     } else {
-      if (wings % 2 == 0 || legs % 2 == 0) {
-        temp1 = wings ~/ chickenWingsPerChicken;
-        temp2 = legs ~/ chickenLegsPerChicken;
-        print('st1' + temp1.toString());
-        print(temp2);
-      } else {
-        temp1 = wings ~/ chickenWingsPerChicken;
-        temp1 = temp1 + 1;
-        temp2 = legs ~/ chickenLegsPerChicken;
-        temp2 = temp2 + 1;
-        print('st2' + temp1.toString());
-        print(temp2);
-      }
-      if (temp2 > temp1 && temp2 > flesh || temp2 == flesh) {
-        leftoverWings = temp2 * chickenWingsPerChicken - wings;
-        leftoverLegs = temp2 * chickenLegsPerChicken - legs;
-        leftoverChickens = temp2 - flesh;
-        requiredChickens = temp2;
-      } else if (temp1 > flesh || temp1 == flesh) {
-        leftoverWings = temp1 * chickenWingsPerChicken - wings;
-        leftoverLegs = temp1 * chickenLegsPerChicken - legs;
-        leftoverChickens = temp1 - flesh;
-        requiredChickens = temp1;
-      } else {
-        leftoverLegs = flesh * chickenLegsPerChicken - legs;
-        leftoverWings = flesh * chickenWingsPerChicken - wings;
-        leftoverChickens = flesh - ((temp1 > temp2) ? temp1 : temp2);
-        requiredChickens = flesh;
-      }
-      setState(() => isLoading = false);
+      temp1 = wings ~/ chickenWingsPerChicken;
+      temp1 = temp1 + 1;
+      temp2 = legs ~/ chickenLegsPerChicken;
+      temp2 = temp2 + 1;
+      print('st2' + temp1.toString());
+      print(temp2);
     }
+    if (temp2 > temp1 && temp2 > flesh || temp2 == flesh) {
+      leftoverWings = temp2 * chickenWingsPerChicken - wings;
+      leftoverLegs = temp2 * chickenLegsPerChicken - legs;
+      leftoverChickens = temp2 - flesh;
+      requiredChickens = temp2;
+    } else if (temp1 > flesh || temp1 == flesh) {
+      leftoverWings = temp1 * chickenWingsPerChicken - wings;
+      leftoverLegs = temp1 * chickenLegsPerChicken - legs;
+      leftoverChickens = temp1 - flesh;
+      requiredChickens = temp1;
+    } else {
+      leftoverLegs = flesh * chickenLegsPerChicken - legs;
+      leftoverWings = flesh * chickenWingsPerChicken - wings;
+      leftoverChickens = flesh - ((temp1 > temp2) ? temp1 : temp2);
+      requiredChickens = flesh;
+    }
+    setState(() => isLoading = false);
   }
 
   @override
@@ -80,7 +73,7 @@ class _StoreResultState extends State<StoreResult> {
         title: const Text('Chickens '),
       ),
       body: isLoading
-          ? const CircularProgressIndicator()
+          ? const Center(child: CircularProgressIndicator())
           : GridView.count(
               crossAxisCount: 2,
               primary: false,
@@ -90,11 +83,33 @@ class _StoreResultState extends State<StoreResult> {
               children: <Widget>[
                 Container(
                   child: Material(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20),
                     child: Center(
                       child: Column(
                         children: [
-                          Text('No of Required \n Chickens'),
-                          Text(requiredChickens.toString()),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const Text(
+                            'No of Required \n    Chickens',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            requiredChickens.toString(),
+                            style: const TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
                         ],
                       ),
                     ),
@@ -102,11 +117,33 @@ class _StoreResultState extends State<StoreResult> {
                 ),
                 Container(
                   child: Material(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20),
                     child: Center(
                       child: Column(
                         children: [
-                          Text('Leftover \n Legs'),
-                          Text(leftoverLegs.toString()),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const Text(
+                            'Leftover \n Legs',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            leftoverLegs.toString(),
+                            style: const TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
                         ],
                       ),
                     ),
@@ -114,11 +151,33 @@ class _StoreResultState extends State<StoreResult> {
                 ),
                 Container(
                   child: Material(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20),
                     child: Center(
                       child: Column(
                         children: [
-                          Text('Leftover \n   Wings'),
-                          Text(leftoverWings.toString()),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const Text(
+                            'Leftover \n   Wings',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            leftoverWings.toString(),
+                            style: const TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
                         ],
                       ),
                     ),
@@ -126,11 +185,33 @@ class _StoreResultState extends State<StoreResult> {
                 ),
                 Container(
                   child: Material(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20),
                     child: Center(
                       child: Column(
                         children: [
-                          Text('Leftover \n Chicken'),
-                          Text(leftoverChickens.toString()),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          const Text(
+                            'Leftover \n Flesh',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            leftoverChickens.toString(),
+                            style: const TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
                         ],
                       ),
                     ),
