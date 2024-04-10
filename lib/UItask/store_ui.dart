@@ -59,7 +59,7 @@ class _StoreUIState extends State<StoreUI> {
                     ],
                   ),
                   Material(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     child: const Icon(
                       Icons.person,
                       size: 50,
@@ -72,17 +72,33 @@ class _StoreUIState extends State<StoreUI> {
               height: 10,
             ),
             Container(
+              padding: const EdgeInsets.all(10),
+              height: 200,
               child: Material(
+                borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Split With'),
+                        const SizedBox(height: 15),
+                        Container(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: const Text(
+                            'Split With',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                        ),
+                        const SizedBox(height: 15),
                         Container(
                           height: 50,
-                          width: 100,
+                          width: 150,
                           child: Stack(
                             fit: StackFit.expand,
                             //alignment:new Alignment(x, y)
@@ -93,7 +109,7 @@ class _StoreUIState extends State<StoreUI> {
                                   color: Colors.blue,
                                   borderRadius: BorderRadius.circular(50),
                                   child: const Icon(Icons.person,
-                                      size: 36.0,
+                                      size: 46.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
                               ),
@@ -103,7 +119,7 @@ class _StoreUIState extends State<StoreUI> {
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(50),
                                   child: const Icon(Icons.person,
-                                      size: 36.0,
+                                      size: 46.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
                               ),
@@ -113,7 +129,7 @@ class _StoreUIState extends State<StoreUI> {
                                   color: Colors.yellow,
                                   borderRadius: BorderRadius.circular(50),
                                   child: const Icon(Icons.person,
-                                      size: 36.0,
+                                      size: 46.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
                               ),
@@ -123,183 +139,309 @@ class _StoreUIState extends State<StoreUI> {
                                   color: Colors.green,
                                   borderRadius: BorderRadius.circular(50),
                                   child: const Icon(Icons.add,
-                                      size: 36.0,
+                                      size: 46.0,
                                       color: Color.fromRGBO(218, 165, 32, 1.0)),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        ElevatedButton(
-                            onPressed: () {}, child: const Text('Split Now'))
+                        const SizedBox(height: 15),
+                        Container(
+                          padding: const EdgeInsets.only(left: 15),
+                          width: 130,
+                          child: ElevatedButton(
+                              style: const ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll(Colors.blue),
+                              ),
+                              onPressed: () {},
+                              child: const Text(
+                                'Split Now',
+                                style: TextStyle(
+                                    fontFamily: 'Arial',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              )),
+                        )
                       ],
                     ),
-                    const Column(
+                    Column(
                       children: [
-                        Text('Total bill'),
-                        Text('\$877'),
+                        Container(
+                          padding: const EdgeInsets.only(right: 30, top: 12),
+                          child: const Text(
+                            'Total bill',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 15,
+                                fontWeight: FontWeight.w200,
+                                color: Colors.black),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(right: 30, top: 12),
+                          child: const Text(
+                            '\$877',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(right: 30, top: 12),
+                          child: const CircleAvatar(
+                            backgroundImage: AssetImage(
+                              'assets/item.jpg',
+                            ), //NetworkImage
+                            radius: 40,
+                          ), //CircleAvat
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 10),
             Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text('Nearby Friends'),
-                      DropdownButton(
-                        value: dropdownvalue,
-                        icon: const Icon(Icons.keyboard_arrow_down),
-                        items: items.map((String items) {
-                          return DropdownMenuItem(
-                            value: items,
-                            child: Text(items),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(
-                            () {
-                              dropdownvalue = newValue!;
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        child: const Material(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Icon(Icons.person),
-                                Text('name'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: const Material(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Icon(Icons.person),
-                                Text('name'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: const Material(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Icon(Icons.person),
-                                Text('name'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: const Material(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Icon(Icons.person),
-                                Text('name'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Text('Recent Split'),
-                  Container(
-                    child: Column(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Material(
+                borderRadius: BorderRadius.circular(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                            child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              child: const Material(
-                                child: Icon(Icons.person),
-                              ),
-                            ),
-                            const Column(
-                              children: [Text('data'), Text('data')],
-                            ),
-                            Container(
-                              height: 50,
-                              width: 100,
-                              child: Stack(
-                                fit: StackFit.expand,
-                                //alignment:new Alignment(x, y)
-                                children: <Widget>[
-                                  Positioned(
-                                    left: 20.0,
-                                    child: Material(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: const Icon(Icons.person,
-                                          size: 36.0,
-                                          color: Color.fromRGBO(
-                                              218, 165, 32, 1.0)),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    left: 35.0,
-                                    child: Material(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: const Icon(Icons.person,
-                                          size: 36.0,
-                                          color: Color.fromRGBO(
-                                              218, 165, 32, 1.0)),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    left: 50.0,
-                                    child: Material(
-                                      color: Colors.yellow,
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: const Icon(Icons.person,
-                                          size: 36.0,
-                                          color: Color.fromRGBO(
-                                              218, 165, 32, 1.0)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ))
+                          padding: const EdgeInsets.only(left: 15),
+                          child: const Text(
+                            'Nearby Friends',
+                            style: TextStyle(
+                                fontFamily: 'Arial',
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: DropdownButton(
+                            value: dropdownvalue,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items: items.map((String items) {
+                              return DropdownMenuItem(
+                                value: items,
+                                child: Text(items),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(
+                                () {
+                                  dropdownvalue = newValue!;
+                                },
+                              );
+                            },
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Material(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.blue,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.white,
+                                  child: const Icon(Icons.person, size: 46),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                const Text('name'),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.blue,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.white,
+                                  child: const Icon(Icons.person, size: 46),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                const Text('name'),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.blue,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.white,
+                                  child: const Icon(Icons.person, size: 46),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                const Text('name'),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.blue,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.white,
+                                  child: const Icon(Icons.person, size: 46),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                const Text('name'),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: const Text(
+                        'Recent Split',
+                        style: TextStyle(
+                            fontFamily: 'Arial',
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ),
+                    Container(
+                      child: Column(
+                        children: [
+                          Container(
+                              child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                child: const Material(
+                                  child: Icon(Icons.person),
+                                ),
+                              ),
+                              const Column(
+                                children: [Text('data'), Text('data')],
+                              ),
+                              Container(
+                                height: 50,
+                                width: 100,
+                                child: Stack(
+                                  fit: StackFit.expand,
+                                  //alignment:new Alignment(x, y)
+                                  children: <Widget>[
+                                    Positioned(
+                                      left: 20.0,
+                                      child: Material(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: const Icon(Icons.person,
+                                            size: 36.0,
+                                            color: Color.fromRGBO(
+                                                218, 165, 32, 1.0)),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 35.0,
+                                      child: Material(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: const Icon(Icons.person,
+                                            size: 36.0,
+                                            color: Color.fromRGBO(
+                                                218, 165, 32, 1.0)),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 50.0,
+                                      child: Material(
+                                        color: Colors.yellow,
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: const Icon(Icons.person,
+                                            size: 36.0,
+                                            color: Color.fromRGBO(
+                                                218, 165, 32, 1.0)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
