@@ -11,7 +11,7 @@ class StoreUI extends StatefulWidget {
 class _StoreUIState extends State<StoreUI> {
   String dropdownvalue = 'Item 1';
   var items = [
-    'Item 1',
+    'See all',
     'Item 2',
     'Item 3',
     'Item 4',
@@ -208,6 +208,7 @@ class _StoreUIState extends State<StoreUI> {
             ),
             const SizedBox(height: 10),
             Container(
+              height: 400,
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: Material(
                 borderRadius: BorderRadius.circular(20),
@@ -254,6 +255,7 @@ class _StoreUIState extends State<StoreUI> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Material(
+                          elevation: 5.0,
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.blue,
                           child: Padding(
@@ -377,68 +379,189 @@ class _StoreUIState extends State<StoreUI> {
                             color: Colors.black),
                       ),
                     ),
-                    Container(
-                      child: Column(
-                        children: [
-                          Container(
-                              child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                child: const Material(
-                                  child: Icon(Icons.person),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          height: 80,
+                          padding: EdgeInsets.only(left: 15, right: 15),
+                          child: Material(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 118, 159, 180),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(left: 5),
+                                  child: Material(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Icon(Icons.person, size: 46),
+                                  ),
                                 ),
-                              ),
-                              const Column(
-                                children: [Text('data'), Text('data')],
-                              ),
-                              Container(
-                                height: 50,
-                                width: 100,
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  //alignment:new Alignment(x, y)
-                                  children: <Widget>[
-                                    Positioned(
-                                      left: 20.0,
-                                      child: Material(
-                                        color: Colors.blue,
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: const Icon(Icons.person,
-                                            size: 36.0,
-                                            color: Color.fromRGBO(
-                                                218, 165, 32, 1.0)),
-                                      ),
+                                const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 15),
+                                    Text(
+                                      'Team Dinner',
+                                      style: TextStyle(
+                                          fontFamily: 'Arial',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
                                     ),
-                                    Positioned(
-                                      left: 35.0,
-                                      child: Material(
-                                        color: Colors.red,
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: const Icon(Icons.person,
-                                            size: 36.0,
-                                            color: Color.fromRGBO(
-                                                218, 165, 32, 1.0)),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 50.0,
-                                      child: Material(
-                                        color: Colors.yellow,
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: const Icon(Icons.person,
-                                            size: 36.0,
-                                            color: Color.fromRGBO(
-                                                218, 165, 32, 1.0)),
-                                      ),
-                                    ),
+                                    Text(
+                                      'Total Payment \$3900',
+                                      style: TextStyle(
+                                          fontFamily: 'Arial',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w200,
+                                          color: Colors.black),
+                                    )
                                   ],
                                 ),
-                              ),
-                            ],
-                          ))
-                        ],
-                      ),
+                                Container(
+                                  height: 50,
+                                  width: 100,
+                                  child: Stack(
+                                    fit: StackFit.expand,
+                                    //alignment:new Alignment(x, y)
+                                    children: <Widget>[
+                                      Positioned(
+                                        left: 20.0,
+                                        child: Material(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: const Icon(Icons.person,
+                                              size: 46.0,
+                                              color: Color.fromRGBO(
+                                                  218, 165, 32, 1.0)),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 35.0,
+                                        child: Material(
+                                          color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: const Icon(Icons.person,
+                                              size: 46.0,
+                                              color: Color.fromRGBO(
+                                                  218, 165, 32, 1.0)),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 50.0,
+                                        child: Material(
+                                          color: Colors.yellow,
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: const Icon(Icons.person,
+                                              size: 46.0,
+                                              color: Color.fromRGBO(
+                                                  218, 165, 32, 1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Container(
+                          height: 80,
+                          padding: EdgeInsets.only(left: 15, right: 15),
+                          child: Material(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 118, 159, 180),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(left: 5),
+                                  child: Material(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Icon(Icons.person, size: 46),
+                                  ),
+                                ),
+                                const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 15),
+                                    Text(
+                                      'Single Dinner',
+                                      style: TextStyle(
+                                          fontFamily: 'Arial',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      'Total Payment \$3000',
+                                      style: TextStyle(
+                                          fontFamily: 'Arial',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w200,
+                                          color: Colors.black),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 50,
+                                  width: 100,
+                                  child: Stack(
+                                    fit: StackFit.expand,
+                                    //alignment:new Alignment(x, y)
+                                    children: <Widget>[
+                                      Positioned(
+                                        left: 20.0,
+                                        child: Material(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: const Icon(Icons.person,
+                                              size: 46.0,
+                                              color: Color.fromRGBO(
+                                                  218, 165, 32, 1.0)),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 35.0,
+                                        child: Material(
+                                          color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: const Icon(Icons.person,
+                                              size: 46.0,
+                                              color: Color.fromRGBO(
+                                                  218, 165, 32, 1.0)),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 50.0,
+                                        child: Material(
+                                          color: Colors.yellow,
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: const Icon(Icons.person,
+                                              size: 46.0,
+                                              color: Color.fromRGBO(
+                                                  218, 165, 32, 1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ],
                 ),
